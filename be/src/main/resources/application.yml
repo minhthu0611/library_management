@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://dpg-cp5ob2o21fec73e9921g-a.singapore-postgres.render.com:5432/library_h28w
+    username: library_h28w_user
+    password: 9on5Gl7xMdgLngdvpT3q29mX7fuD5DZd
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Iv1.1fe17cfbf43477f4
+            client-secret: 0ce8177b94b4d4134becfed3c16c86b920ad0234
+server:
+  port: 9998

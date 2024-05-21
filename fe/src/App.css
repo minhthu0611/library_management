@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#loginUser {
+  background-image: url("https://wallpaperaccess.com/full/124378.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.library-logo {
+  width: 55px;
+}
+
+.Books-card {
+  width: 18rem;
+  color: black;
+}
+
+.book-image-view img {
+  height: fit-content;
+}
+
+@media (max-width: 600px) {
+  .Books-card {
+    width: 12rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-image-view img {
+    width: 175px;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-4 {
+    margin-bottom: 10px;
+  }
+}
