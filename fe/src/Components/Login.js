@@ -31,7 +31,7 @@ function Login() {
                                                         Me</label>
                                                 </div>
                                             </div>
-                                            <Link to="/librarian-portal/librarian-dashboard" className="btn btn-primary btn-user btn-block button-login" style={{ fontSize: "1rem" }}>
+                                            <Link to="/librarian-portal/librarian-book-list" className="btn btn-primary btn-user btn-block button-login" style={{ fontSize: "1rem" }}>
                                                 Login
                                             </Link>
                                             <hr style={{ borderColor: "white" }} />

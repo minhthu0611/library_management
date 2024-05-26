@@ -62,7 +62,7 @@ function LibrarianBookCreate() {
                 setLoading(true);
                 await axios.post(`${process.env.REACT_APP_API_URL}/book`, values);
                 setLoading(false);
-                toast("Thêm thành công", {
+                toast("Thêm sách thành công", {
                     autoClose: 2000
                 });
                 

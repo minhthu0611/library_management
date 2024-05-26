@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTachographDigital, faBook } from "@fortawesome/free-solid-svg-icons";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
+import Logo from "../Logo_HCMUAF.svg";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -15,7 +16,7 @@ function SideBar({ isLink }) {
                 to={"/"}>
                 <div className="sidebar-brand-icon">
                     <img
-                        src="https://www.kindpng.com/picc/m/616-6169709_library-logo-of-a-person-holding-a-book.png"
+                        src={Logo}
                         alt="Library"
                         className="library-logo"
                     />
@@ -26,15 +27,6 @@ function SideBar({ isLink }) {
             {/* <!-- Divider --> */}
             <hr className="sidebar-divider my-0" />
 
-            {/* <!-- Nav Item - Dashboard --> */}
-            <li className="nav-item active">
-                <Link className="nav-link" to={dashboardLink} >
-                    <FontAwesomeIcon
-                        icon={faTachographDigital}
-                        style={{ marginRight: "0.5rem" }} />
-                    <span>Dashboard</span>
-                </Link>
-            </li>
             {/* <!-- Divider --> */}
             <hr className="sidebar-divider my-0" />
 
