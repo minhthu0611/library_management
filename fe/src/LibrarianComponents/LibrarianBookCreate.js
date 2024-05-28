@@ -24,34 +24,34 @@ function LibrarianBookCreate() {
             let errors = {}
 
             if (!values.title) {
-                errors.title = "Enter the title of the Book";
+                errors.title = "Vui lòng nhập tiêu đề sách";
             }
 
             if (!values.author) {
-                errors.author = "Author field can't be empty";
+                errors.author = "Vui lòng nhập tên tác giả";
             }
 
             if (!values.book_image) {
-                errors.book_image = "Please enter this field";
+                errors.book_image = "Vui lòng nhập ảnh bìa sách";
             }
 
             if (!values.overview) {
-                errors.overview = "Enter the story overview of the Book";
+                errors.overview = "Vui lòng nhập giới thiệu sách";
             } else if (values.overview.length > 300) {
                 console.log(values.overview.length);
-                errors.overview = "Short description or overview should be less than 300";
+                errors.overview = "Giới thiệu sách không được quá 300 ký tự";
             }
 
             if (!values.genre) {
-                errors.genre = "Genre of the book";
+                errors.genre = "Vui lòng nhập thể loại sách";
             }
 
             if (!values.language) {
-                errors.language = "Please enter how many languages available";
+                errors.language = "Vui lòng nhập ngôn ngữ sách";
             }
 
             if (!values.description) {
-                errors.description = "This can't be empty";
+                errors.description = "Vui lòng nhập mô tả chi tiết sách";
             }
 
             return errors;
@@ -60,14 +60,16 @@ function LibrarianBookCreate() {
         onSubmit: async (values) => {
             try {
                 setLoading(true);
+                // 5.  Gọi api thêm sách mới vào hệ thống
                 await axios.post(`${process.env.REACT_APP_API_URL}/book`, values);
                 setLoading(false);
+                // 9. Hệ thống hiển thị thông báo thêm sách thành công và sách vừa được thêm được hiển thị tại trang [Quản lý sách]
                 toast("Thêm sách thành công", {
                     autoClose: 2000
                 });
-                
                 setTimeout(() => navigate("/librarian-portal/librarian-book-list"), 2000)
             } catch (error) {
+                // 7.4. Thêm sách không thành công và hiện thông báo lỗi [Sách đã tồn tại trong hệ thống]
                 toast.error("Sách đã tồn tại trong hệ thống", {
                     autoClose: 2000
                 });
@@ -77,12 +79,14 @@ function LibrarianBookCreate() {
     })
 
     return (
+        // 2.Hệ thống chuyển qua giao diện thêm sách, ở đây có các trường thông tin sách
         <>
             <ToastContainer />
             <h3>Thêm sách mới </h3>
             <div className='container mt-4'>
                 <form onSubmit={myFormik.handleSubmit}>
                     <div className='row'>
+                        {/* 3.Thủ thư điền đầy đủ các trường thông tin sách */}
                         <div className='col-lg-6'>
                             <label>Tiêu đề</label>
                             <input name='title' value={myFormik.values.title} onChange={myFormik.handleChange}
@@ -133,6 +137,7 @@ function LibrarianBookCreate() {
                             </textarea>
                             <span style={{ color: "red" }}>{myFormik.errors.description} </span>
                         </div>
+                        {/* 4.Thủ thư nhấn [Thêm] */}
                         <div className='col-lg-4 mt-3'>
                             <input disabled={isLoading} type='submit' value={isLoading ? "Đang thêm..." : "Thêm"} className='btn btn-primary' />
                         </div>

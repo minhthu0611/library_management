@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import ReactLoading from "react-loading";
 
 function BookView({ isLibrarian }) {
     const params = useParams();
@@ -30,7 +31,7 @@ function BookView({ isLibrarian }) {
         <>
             {/* <div><h3>BookView</h3></div> */}
             {
-                isLoading ? <img src="https://media.giphy.com/media/9MImS9neQuoRa3D19h/giphy.gif" alt="Loading..." />
+                isLoading ? <ReactLoading type='spin' color="#000000" />
                     : <div className="card" style={{ color: "black" }}>
                         <div className="card-header">
                             <h3>{BookRead.title}</h3>

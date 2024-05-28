@@ -3,17 +3,12 @@ import { Outlet } from 'react-router-dom'
 import SideBar from './SideBar'
 import TopBar from './TopBar'
 
-function Portal({ isLibrarian }) {
+function Portal() {
 
-    const isLink = isLibrarian ?
+    const isLink = 
         {
             dashboardLink: "/librarian-portal/librarian-dashboard",
             bookDetailsLink: "/librarian-portal/librarian-book-list"
-        }
-        :
-        {
-            dashboardLink: "/customer-portal/customer-dashboard",
-            bookDetailsLink: "/customer-portal/customer-book-list"
         }
 
     return (

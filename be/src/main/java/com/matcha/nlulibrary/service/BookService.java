@@ -17,9 +17,11 @@ public class BookService {
         return bookDao.findAll();
     }
 
+    // 7. Lớp Service xử lý check các thông tin user gửi đến và gọi tới lớp Dao để tương tác với database
     public Book registerBook(Book book) {
         checkInput(book);
         book.setCreatedAt(Timestamp.valueOf(java.time.LocalDateTime.now()));
+        // 8. Lớp Dao lưu dữ liệu từ service gửi xuống vào database
         return bookDao.save(book);
     }
 
@@ -39,8 +41,10 @@ public class BookService {
 
     public void checkInput(Book book) {
         List<Book> books = bookDao.findAll();
+        // 7.1 Thông tin trường [Tên sách] và trường [Tác giả] là tên sách của tác giả đã tồn tại trong hệ thống
         for (Book b : books) {
             if (b.getTitle().equals(book.getTitle()) && b.getAuthor().equals(book.getAuthor())) {
+                // 7.2 Lớp Service trả về lỗi
                 throw new IllegalArgumentException("Book already exists");
             }
         }

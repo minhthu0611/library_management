@@ -4,7 +4,6 @@ import Login from './Components/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Portal from './Components/Portal';
 import BookDetailsList from './Components/BookDetailsList';
-import CustomerDashboard from './CustomerComponents/CustomerDashboard';
 import BookView from './Components/BookView';
 import LibrarianBookEdit from './LibrarianComponents/LibrarianBookEdit';
 import LibrarianBookCreate from './LibrarianComponents/LibrarianBookCreate';
@@ -16,15 +15,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/librarian-portal' element={<Portal isLibrarian={true} />} >
-          <Route path='librarian-book-list' element={<BookDetailsList isCustomer={false} />} />
+          <Route path='librarian-book-list' element={<BookDetailsList />} />
           <Route path='book-view/:id' element={<BookView isLibrarian={true} />} />
           <Route path='book-edit/:id' element={<LibrarianBookEdit />} />
           <Route path='add-new-book' element={<LibrarianBookCreate />} />
-        </Route>
-        <Route path='/customer-portal' element={<Portal isLibrarian={false} />}>
-          <Route path='customer-dashboard' element={<CustomerDashboard />} />
-          <Route path='customer-book-list' element={<BookDetailsList isCustomer={true} />} />
-          <Route path='book-read/:id' element={<BookView />} />
         </Route>
       </Routes>
     </BrowserRouter>

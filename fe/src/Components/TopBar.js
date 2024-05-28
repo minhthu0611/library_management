@@ -18,7 +18,6 @@ function TopBar() {
                 <li className="nav-item dropdown no-arrow">
                     <Link className="nav-link dropdown-toggle" to={"/"} id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {/* <span className="mr-2 d-none d-lg-inline text-gray-600 medium">name</span> */}
                         <FontAwesomeIcon className='mr-2' icon={faUserSecret} size={"2x"} style={{ color: 'black' }} />
                         <button className='btn btn-sm btn-danger'>
                             <FontAwesomeIcon icon={faRightFromBracket} size={"2x"} />

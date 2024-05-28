@@ -28,12 +28,12 @@ public class BookController {
             return ResponseEntity.badRequest().body(response);
         }
     }
-
+    // 6. Lớp Controller nhận yêu cầu và chuyển thông tin đến service để xử lý
     @PostMapping
     public ResponseEntity<?> registerBook(@RequestBody Book book) {
         try {
             return ResponseEntity.ok(bookService.registerBook(book));
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) { // 7.3 Lớp Controller bắt lỗi và throw ra lỗi tương ứng
             Map<String, String> response = Map.of("error", e.getMessage());
             return ResponseEntity.badRequest().body(response);
         }
