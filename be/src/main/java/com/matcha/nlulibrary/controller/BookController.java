@@ -33,7 +33,7 @@ public class BookController {
     public ResponseEntity<?> registerBook(@RequestBody Book book) {
         try {
             return ResponseEntity.ok(bookService.registerBook(book));
-        } catch (IllegalArgumentException e) { // 7.3 Lớp Controller bắt lỗi và throw ra lỗi tương ứng
+        } catch (IllegalArgumentException e) { // 6.3 Lớp Controller bắt lỗi và throw ra lỗi tương ứng
             Map<String, String> response = Map.of("error", e.getMessage());
             return ResponseEntity.badRequest().body(response);
         }

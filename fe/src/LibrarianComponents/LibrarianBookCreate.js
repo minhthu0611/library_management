@@ -63,13 +63,14 @@ function LibrarianBookCreate() {
                 // 5.  Gọi api thêm sách mới vào hệ thống
                 await axios.post(`${process.env.REACT_APP_API_URL}/book`, values);
                 setLoading(false);
-                // 9. Hệ thống hiển thị thông báo thêm sách thành công và sách vừa được thêm được hiển thị tại trang [Quản lý sách]
+                // 10. Hệ thống hiển thị thông báo thêm sách thành công 
                 toast("Thêm sách thành công", {
                     autoClose: 2000
                 });
+                // 11. Hiển thị  sách vừa được thêm tại trang [Quản lý sách]
                 setTimeout(() => navigate("/librarian-portal/librarian-book-list"), 2000)
             } catch (error) {
-                // 7.4. Thêm sách không thành công và hiện thông báo lỗi [Sách đã tồn tại trong hệ thống]
+                // 6.4. Thêm sách không thành công và hiện thông báo lỗi [Sách đã tồn tại trong hệ thống]
                 toast.error("Sách đã tồn tại trong hệ thống", {
                     autoClose: 2000
                 });
